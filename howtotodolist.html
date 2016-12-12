@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+     <link rel="stylesheet" href="navbar.css" type="text/css" />
+    <head>
+        <title> </title>
+    
+        <style>
+ a {
+            text-decoration: underline;
+              font-size: 30px;
+               color: pink;
+        }
+ body {
+    background-image: url(http://cdn.pcwallart.com/images/dark-background-design-wallpaper-2.jpg);
+    color: white;
+}
+
+
+h1 {
+    text-align: center;
+      font-size: 92px;
+  text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
+h2 {
+text-shadow: 0 0 10px #fff,
+0 0 20px #fff,
+0 0 30px #fff,
+0 0 40px #ff00de,
+0 0 70px #ff00de,
+0 0 80px #ff00de,
+0 0 100px #ff00de,
+0 0 150px #ff00de;
+}
+
+
+
+
+
+</style>
+        
+
+</head>
+    <body>
+
+
+
+<ul id="navbar"> 
+<li> <a href="index.html"> About me</a></li>
+<li> <a href="hardware.html"> Hardware</a></li>
+<li> <a href="howto.html"> How To</a></li>
+<li> <a href="#"> Calculator</a></li>
+<li> <a href="#"> Todo list</a></li>
+<li> <a href="#">Vindinium </a></li>
+<li> <a href="#"> Big Project</a></li>
+
+</ul>
+      <h1>
+            <font size="" color="hotPink">How To:Todo List </font>
+        </h1>
+
+        <h2>
+            <font size="10" color="white"><u>Giving Ids and adding options</u></font>
+        </h2>
+<code>
+    <pre>&lt;input id= &quot;WordInput1&quot;&gt;
+          &lt;select id=&quot;colorInput&quot;&gt;
+      
+  &lt;option value=&quot;Orange&quot;&gt;Orange&lt;/option&gt;
+  &lt;option value=&quot;green&quot;&gt;Green&lt;/option&gt;
+  &lt;option value=&quot;blue&quot;&gt;Blue&lt;/option&gt;
+  &lt;option value=&quot;pink&quot;&gt;Pink&lt;/option&gt;
+
+
+    </pre>
+</code>
+
+
+
+
+        <p>
+            <font size="5" color="white"> First of all I started, creating the Ids "WordInput1" and "colorInput". I made them so I could refer to them later in the Javascript. "Wordinput1" is where the user can type input and "colorInput" is what I will use later to let the user color their input. The reason one is input and the other is select is because the input tag makes a place for you to input like type and the select makes it so you can select diferent items like colors in this case.  After, I created the options and set the value to different colors. 
+            The actual colors don't matter that much since as long as the computer recognizes them coding "magenta" will not be any harder than coding "red".      </p>
+        <hr class="style18">
+
+        <h2>
+            <font size="10" color="white"><u> Linking the Javascript and adding buttons</u></font>
+        </h2>
+               <code>
+&lt;button id= &quot;SubmitButton2&quot;&gt;Enter&lt;/button&gt;
+  &lt;button id=&quot;reset&quot;&gt;Clear All&lt;/button&gt;
+&lt;div id=&quot;tasks&quot;&gt;
+    
+    
+&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;Todo.js&quot;&gt;&lt;/script&gt;
+    </pre>
+</code>
+        <p>
+            <font size="5" color="white"> To create the buttons I used the button tag and made the Ids that I later used in Javascript. The "SubmitButton2" is the enter button which enters the input into the todo list. Then, the "reset" button is the clear all button which I hope to make it work later so that it clears all entered input. Also, I added a div with an id of tasks for the tasks that the user will input. 
+            Then I used the script to link the javascript to the html which makes it so I can use the ids that I created in my Html in the javascript. I specifically said the "Todo.js" as the javascript file to link it to.
+            </p>
+        <hr class="style18">
+
+
+        <h2>
+            <font size="10" color="white"><u> Getting Elements By Id and Creating Variables </u> </font>
+        </h2>
+              <code>
+                  <pre>
+var WordInput1 = document.getElementById(&quot;WordInput1&quot;);
+var SubmitButton2 = document.getElementById(&quot;SubmitButton2&quot;);
+var tasks = document.getElementById(&quot;tasks&quot;);
+var colorInput = document.getElementById(&quot;colorInput&quot;);
+var reset= document.getElementById(&quot;reset&quot;)
+
+    </pre>
+</code>
+        <p>
+            <font size="5" color="white"> In the javascript, I used getElementById to get the elements by id. The reason I can get the elements is because I linked it earlier. 
+            Then, I created the different variables for each of the ids. The tasks is the name for the entered input. The colorInput is what the user will use to choose the color for the tasks. 
+            The reset variable is what you use to clear all the tasks. </font>
+        </p>
+
+        <hr class="style18">
+     
+        <h2>
+            <font size="10" color="white"><u> Adding Color and Style </u> </font>
+        </h2>
+           <code>
+               <pre>
+SubmitButton2.addEventListener(&quot;click&quot;, function() {
+tasks.innerHTML+= &quot;&lt;br&gt;&quot; + &quot;&lt;div style='color:&quot; + colorInput.value + &quot; '&gt;&quot; + WordInput1.value + &quot;&lt;/div&gt;&quot;;    
+});
+    </pre>
+</code>
+        <p>
+            <font size="5" color="white"> First, I wanted to make the submit button work. So I used the DOM addEventListener which "listens" for the click. When the button is clicked it performs the function. 
+            The function starts with tasks.innerHtml which, and allows the javascript to affect the website being displayed.  The += is what I used as a quick way to add. Next, I added &quot;&lt;br&gt;&quot; to the function which breaks the text and makes more space. 
+            I chose to add this, because I did not want the tasks too close to eachother and hard to read. After that I added the &quot;&lt;div style='color:&quot; to be the ColorInmput.value. I did that so the user could actually change the color of the tasks.
+            So then I just ended teh dive opening tag and added the actual user imput  which is what the user actualy types. Finally, I close the div and the function.
+            
+    </p>
+         <hr class="style18">
+     
+        <h2>
+            <font size="10" color="white"><u> Clearing Tasks</u> </font>
+        </h2>
+           <code>
+               <pre>
+
+reset.addEventListener(&quot;click&quot; , function(evt){
+    tasks.innerHTML = &quot;&quot;
+}
+tasks.addEventListener(&quot;click&quot;, function(evt) {
+
+     var targetTasks = evt.target;
+     targetTasks.parentNode.removeChild(targetTasks);
+
+ });
+    </pre>
+</code>
+        <p>
+            <font size="5" color="white"> First, I used addEventListener to "listen" for a click in the variable reset. When the click is heard, it runs a specific function. This function first uses tasks.innerHTML to manipulate the display of the website. 
+            Then it sets it to nothing. There is nothing in the quotes, because I wanted it to clear everything. So it is not really clearing everything as much as it is replacing it with nothing. Next, I used another addEventListener, but this time I made it so it will recognize when each individual tasks is clicked by using tasks instead of reset.
+            When a task is clicked, the variable targetTasks targets an idividual tasks and not all of them. Then, the targetTasks.parentNode.removeChild(targetTasks); is what removes the individual task. I added this into my todo list so that if I make a mistake I don't have to clear all of my tasks.        </p>
+    <body>
+
+    </body>
+</html>
